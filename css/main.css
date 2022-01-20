@@ -46,14 +46,14 @@ h1 {
 }
 
 #play-button button {
-    width: 40vw;
-    height: 10vw;
+    width: 20vw;
+    height: 5vw;
     border-radius: 6px;
     border-color: #666;
     background-color: #123;
     font-family: serif;
-    font-size: 7vw;
-    font-weight: 1000;
+    font-size: 3vw;
+    font-weight: 700;
     color: #bbb;
     
 }
