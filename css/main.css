@@ -1,6 +1,6 @@
 body {
-    background: rgb(10,36,0);
-    background: linear-gradient(90deg, rgba(10,36,0,0.8799894957983193) 0%, rgba(79,4,70,1) 0%, rgba(0,212,255,1) 100%);
+    background: rgb(4,4,4);
+    background: linear-gradient(90deg, rgba(4,4,4,0.8799894957983193) 0%, rgba(22,22,22,1) 0%, rgba(190,197,199,1) 100%, rgba(182,182,182,1) 100%);
 }
 
 h1 {
@@ -23,29 +23,29 @@ h1 {
 }
 
 
-#blue-cell {
+.blue {
     background-color: blue;
 }
 
-#red-cell {
+.red {
     background-color: red;
 }
 
-#yellow-cell {
+.yellow {
     background-color: yellow;
 }
 
-#green-cell {
+.green {
     background-color: green;
 }
 
-#play-button {
+#play-button-container {
     display: flex;
     justify-content: center;
     margin: 30px;
 }
 
-#play-button button {
+#play-button-container button {
     width: 20vw;
     height: 5vw;
     border-radius: 6px;
@@ -56,6 +56,10 @@ h1 {
     font-weight: 700;
     color: #bbb;
     
+}
+
+.active {
+    outline: 4px solid #000;
 }
 
 .hidden {
