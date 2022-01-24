@@ -83,6 +83,7 @@ function sameArrays(arr1, arr2) {
 
 async function playGame() {
     $play.classList.add('hidden');
+    document.querySelector('#result-counter-text').classList.add('hidden');
     let arrayComputer = [];
     let arrayPlayer = [];
         
@@ -96,7 +97,9 @@ async function playGame() {
             turnMachine(arrayComputer);
         }
     }
-    console.log('Perdiste!');
+    document.querySelector('#result-counter-text').classList.remove('hidden');
+    document.querySelector('#result-counter-text').textContent = `Your record is ${arrayComputer.length - 1}. Try again!`;
+    $play.classList.remove('hidden');
    
 }
 

@@ -58,6 +58,17 @@ h1 {
     
 }
 
+#result-counter-container {
+    display: flex;
+    justify-content: center;
+}
+
+#result-counter-text {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2vw;
+    font-weight: 300;
+}
+
 .active {
     outline: 4px solid #000;
 }
