@@ -43,53 +43,62 @@ function highlightCellsPlayer(color) {
     }, 150);
 }
 
-function turnMachine(arr, counter) {
-    while (arr.length < counter) {
-        arr.push(generateRandomNumber());
-    }    
+function turnMachine(arr) {
+    arr.push(generateRandomNumber());   
     highlightCellsComputer(arr);
-    console.log(arr)
+    console.log(arr);
 }
 
-function turnPlayer() {
-    let array = [];
-
+function turnPlayer(array) {
     document.querySelectorAll('.color-cells').forEach(function (cell) {
         cell.onclick = function (event) {
             if (event.target.getAttribute('name') === 'blue') {
                 array.push(0);
                 highlightCellsPlayer(event.target.getAttribute('name'));
-
             } else if (event.target.getAttribute('name') === 'red') {
                 array.push(1);
                 highlightCellsPlayer(event.target.getAttribute('name'));
-
             } else if (event.target.getAttribute('name') === 'yellow') {
                 array.push(2);
                 highlightCellsPlayer(event.target.getAttribute('name'));
-
             } else if (event.target.getAttribute('name') === 'green') {
                 array.push(3);
                 highlightCellsPlayer(event.target.getAttribute('name'));
-            }
-
-            return array;
-
-        };
-
+            }            
+        };        
     });
-
 }
 
-function playGame() {
-    let counter = 3;
+function sameArrays(arr1, arr2) {
+    for (let i = 0; i < arr2.length; i++) {
+        if (arr1[i] === arr2[i]) {
+            continue;
+        } else {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+async function playGame() {
+    $play.classList.add('hidden');
     let arrayComputer = [];
+    let arrayPlayer = [];
         
-   turnMachine(arrayComputer, counter);
-   //console.log(arrayComputer);
-    //let arrayPlayer = turnPlayer();
-   
+    turnMachine(arrayComputer);
+    
+    while (arrayPlayer.length < arrayComputer.length) {
+        turnPlayer(arrayPlayer);
+        await wait(1000);
+        if (sameArrays(arrayPlayer, arrayComputer)) {
+            arrayPlayer = [];
+            turnMachine(arrayComputer);
+        }
+    }
+    console.log('Perdiste!');
    
 }
 
-document.querySelector('#play-button').onclick = playGame;
+const $play = document.querySelector('#play-button');
+$play.onclick = playGame;
