@@ -1,15 +1,6 @@
-const generateRandomNumber = function() { // returns a random number from zero to three
-    const randomNumber = Math.random();
-
-    if (randomNumber < 0.25) {
-        return 0;
-    } else if (randomNumber >= 0.25 && randomNumber < 0.5) {
-        return 1;
-    } else if (randomNumber >= 0.5 && randomNumber < 0.75) {
-        return 2;
-    } else {
-        return 3;
-    }
+const generateRandomNumber = function() { 
+    const randomNumber = Math.floor(Math.random() * 4); // returns a random number from zero to three
+    return randomNumber;
 }
 
 const colors = {
